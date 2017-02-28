@@ -9,7 +9,7 @@ class ActionButton extends Component {
         <Row>
           <Col xs={10} />
           <Col xs={2}>
-            <Button bsStyle='danger' bsSize='large'>
+            <Button bsStyle='danger' className='green-button' bsSize='large'>
               <FontAwesome name='plus' /> +
             </Button>
           </Col>
