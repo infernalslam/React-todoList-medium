@@ -3,6 +3,10 @@ import { Row, Col } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 
 class Task extends Component {
+  constructor (props) {
+    super(props)
+    this.delTask = this.props.delTask.bind(this)
+  }
   render () {
     return (
       <div>
@@ -21,7 +25,7 @@ class Task extends Component {
 
           <Col xs={1}>
             <Row style={{paddingTop: '10px'}}>
-              <Col xs={6}> <FontAwesome name='times' /> </Col>
+              <Col xs={6}> <FontAwesome name='times' onClick={this.delTask.bind(this, this.props.id)} /> </Col>
               <Col xs={6}> <FontAwesome name='check' /> </Col>
             </Row>
           </Col>

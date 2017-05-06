@@ -3,7 +3,8 @@ import './App.css'
 import TaskList from './components/taskList.js'
 import Date from './components/date.js'
 import Avatar from './components/avatar.js'
-import Button from './components/button.js'
+// import Button from './components/button.js'
+import Form from './components/form.js'
 
 class App extends Component {
   constructor () {
@@ -41,13 +42,26 @@ class App extends Component {
       ]
     }
   }
+  delTask (index) {
+    console.log(this.state.tasks)
+    var id = this.state.tasks.findIndex((item) => item.id === index)
+    console.log('id :', id, index)
+    this.state.tasks.splice(id, 1)
+    this.setState({tasks: this.state.tasks})
+  }
+
+  addTask (data) {
+    alert('addTask')
+    console.log('data', data)
+  }
+
   render () {
     return (
       <div style={{padding: '30px 30px'}}>
         <Avatar />
+        <Form addTask={this.addTask}/>
         <Date /> <br />
-        <TaskList tasks={this.state.tasks} />
-        <Button />
+        <TaskList tasks={this.state.tasks} delTask={this.delTask.bind(this)} />
       </div>
     )
   }

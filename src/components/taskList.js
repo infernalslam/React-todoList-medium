@@ -2,6 +2,10 @@ import React, { Component} from 'react'
 import Tasks from './tasks.js'
 
 class TaskList extends Component {
+  constructor (props) {
+    super(props)
+    this.delTask = this.props.delTask.bind(this)
+  }
   render () {
     return (
       <div>
@@ -13,6 +17,7 @@ class TaskList extends Component {
             period={item.period}
             title={item.title}
             description={item.description}
+            delTask={this.delTask}
             />)
         })}
       </div>
